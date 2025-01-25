@@ -1,79 +1,50 @@
 import 'package:flutter/material.dart';
-import 'package:tugas_akhir/add_list_page.dart';
+import 'package:tugas_akhir/list_page.dart';
 
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  List<String> tasks = [];
-
-  void _addNewTask(String task) {
-    setState(() {
-      tasks.add(task);
-    });
-  }
-
-  @override
+class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lime,
+        backgroundColor: Colors.brown,
         title: Text(
-          'List Pekerjaan Done',
-          style: TextStyle(
-              color: Colors.white, fontSize: 30, fontWeight: FontWeight.bold),
+          "Selamat Datang",
+          textAlign: TextAlign.center,
+          style: TextStyle(color: Colors.white),
         ),
+        centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      backgroundColor: Colors.brown,
+      body: Center(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
             Text(
-              'Daftar Sudah Melakukan :',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              'PEKERJAAN DONE',
+              style: TextStyle(
+                  fontSize: 36.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
             ),
-            SizedBox(height: 10),
-            Expanded(
-              child: tasks.isEmpty
-                  ? Center(
-                      child: Text(
-                        'Belum melakukan pekerjaan hari ini. Tambahkan bila sudah menyelesaikan pekerjaan!!!',
-                        style: TextStyle(fontSize: 16, color: Colors.grey),
-                        textAlign: TextAlign.center,
-                      ),
-                    )
-                  : ListView.builder(
-                      itemCount: tasks.length,
-                      itemBuilder: (context, index) {
-                        return ListTile(
-                          leading: Icon(Icons.check_circle_outline),
-                          title: Text(tasks[index]),
-                        );
-                      },
-                    ),
+            SizedBox(
+              height: 50,
             ),
-            SizedBox(height: 20),
-            Center(
-              child: ElevatedButton(
-                onPressed: () async {
-                  final newTask = await Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => AddListPage()),
-                  );
-
-                  if (newTask != null) {
-                    _addNewTask(newTask);
-                  }
-                },
-                child: Text(
-                  'Tambahkan Di List',
-                  style: TextStyle(
-                      color: Colors.black, fontWeight: FontWeight.bold),
-                ),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 17),
+                  textStyle: TextStyle(fontSize: 20)),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ListPage()),
+                );
+              },
+              child: Text(
+                'MASUK',
+                style: TextStyle(color: Colors.black),
               ),
+            ),
+            SizedBox(
+              height: 100,
             ),
           ],
         ),

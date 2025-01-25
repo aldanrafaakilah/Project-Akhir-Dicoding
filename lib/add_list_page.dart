@@ -19,7 +19,7 @@ class _AddListPageState extends State<AddListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lime,
+        backgroundColor: Colors.brown,
         title: Text(
           'Tambahkan Pekerjaaan',
           style: TextStyle(
