@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:tugas_akhir/home_page.dart';
-import 'package:tugas_akhir/list_page.dart';
 
 void main() {
   runApp(MyApp());
